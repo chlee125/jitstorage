@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jitstorage.dao.JitInterface">
+	<!-- 로그인 -->
+	<select id="login" resultType="String">
+		SELECT test_id FROM testmem WHERE test_id = #{param1} AND test_pw = #{param2}
+	</select>
+	
+	<!--  회원가입 -->
+	<insert id="regist">
+		INSERT INTO testmem(test_id, test_pw)
+			VALUES(#{param1}, #{param2})
+	</insert>
+	
+	<!-- 중복확인 -->
+	<select id="chkEmail" resultType="String">
+		SELECT test_id FROM testmem WHERE test_id = #{param1}
+	</select>
+</mapper>
